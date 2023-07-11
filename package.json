@@ -1,0 +1,35 @@
+{
+  "name": "dynamicgrid",
+  "widgetName": "DynamicGrid",
+  "version": "1.0.0",
+  "description": "Mendix wrapper for react-data-grid",
+  "copyright": "@ Objectivity 2022",
+  "author": "Sergiusz Woznicki",
+  "engines": {
+    "node": ">=12"
+  },
+  "license": "MIT",
+  "config": {
+    "projectPath": "../../",
+    "mendixHost": "http://localhost:8080",
+    "developmentPort": 3000
+  },
+  "packagePath": "objectivity",
+  "scripts": {
+    "start": "pluggable-widgets-tools start:server",
+    "dev": "pluggable-widgets-tools start:web",
+    "build": "pluggable-widgets-tools build:web",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:web"
+  },
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "^9.23.2"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "date-fns": "^2.28.0",
+    "react-data-grid": "^7.0.0-beta.13"
+  }
+}

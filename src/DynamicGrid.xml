@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="objectivity.dynamicgrid.DynamicGrid" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Dynamic Grid</name>
+    <description>Mendix wrapper for react-data-grid</description>
+    <icon/>
+    <properties>
+
+        <propertyGroup caption="General">
+            <property key="IN_COLS" type="expression" defaultValue="'[]'">
+                <caption>Columns JSON</caption>
+                <description>Example: [ {"key":"_ID","name":"ID","sortable":true}, {"key":"desc","name":"Description","editable":true,"sortable":true} ]</description>
+                <returnType type="String" />
+            </property>
+            <property key="IN_ROWS" type="expression" defaultValue="'[]'">
+                <caption>Rows (data) JSON</caption>
+                <description>Example: [ {"_ID":1,"desc":"Row 1"}, {"_ID":2,"desc":"Row 2"} ]</description>
+                <returnType type="String" />
+            </property>
+        </propertyGroup>
+
+        <propertyGroup caption="Editing">
+            <property key="OUT_CHANGE" type="attribute" required="false">
+                <caption>Changed cell value JSON</caption>
+                <description>Example: {rowId: 1, columnKey: 'desc', value: 'updated value'}</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="ON_CHANGE" type="action">
+                <caption>On cell value change</caption>
+                <description>The current value will be set to Changed cell value JSON</description>
+            </property>
+        </propertyGroup>
+
+        <propertyGroup caption="Sorting">
+            <property key="INOUT_SORT_COL" type="attribute" required="false">
+                <caption>Sort column JSON</caption>
+                <description>Example: {columnKey: "_ID", direction: "ASC"}</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="ON_SORT_COL_CHANGE" type="action">
+                <caption>On sort column change</caption>
+                <description>The current value will be set to Sort column JSON</description>
+            </property>
+        </propertyGroup>
+
+        <propertyGroup caption="Selection">
+            <property key="IN_USE_SELECT_COL" type="expression" defaultValue="false">
+                <caption>Use Selection column</caption>
+                <description></description>
+                <returnType type="Boolean" />
+            </property>
+            <property key="INOUT_SELECTED_ROWS" type="attribute" required="false">
+                <caption>Selected rows string (_IDs)</caption>
+                <description>Example: '|1|2|3|'; empty: '|'</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="ON_SELECTED_ROWS_CHANGE" type="action">
+                <caption>On selected rows change</caption>
+                <description>The current value will be set to Selected rows string</description>
+            </property>
+            <property key="OUT_SELECT_ALL_CHECKED" type="attribute" required="false">
+                <caption>Select All checked</caption>
+                <description></description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+            <property key="ON_SELECT_ALL_CHANGE" type="action">
+                <caption>On Select All changed</caption>
+                <description>The current value will be set to Select All checked</description>
+            </property>
+        </propertyGroup>
+
+        <propertyGroup caption="Action column">
+            <property key="IN_USE_ACTION_COL" type="expression" defaultValue="false">
+                <caption>Use Action column</caption>
+                <description></description>
+                <returnType type="Boolean" />
+            </property>
+            <property key="IN_ACTION_ROWS_DS" type="datasource" isList="true" required="false">
+                <caption>Action column rows</caption>
+                <description>Optional data source for rows for Action column. Will be rendered using "Optional template: Action column content per row".</description>
+            </property>
+            <property key="IN_ACTION_ROW_ID" type="expression" dataSource="IN_ACTION_ROWS_DS" required="false">
+                <caption>Action column row id</caption>
+                <description>Row id per each row</description>
+                <returnType type="String" />
+            </property>
+            <property key="IN_ACTION_ROW_WIDGET" type="widgets" dataSource="IN_ACTION_ROWS_DS" required="false">
+                <caption>Optional template: Action column content per row</caption>
+                <description/>
+            </property>
+        </propertyGroup>
+
+        <propertyGroup caption="Custom subheaders">
+            <property key="IN_USE_SUBHEADERS" type="expression" defaultValue="false">
+                <caption>Use Subheaders</caption>
+                <description></description>
+                <returnType type="Boolean" />
+            </property>
+            <property key="IN_HEADER_COLS_DS" type="datasource" isList="true" required="false">
+                <caption>Subheader columns</caption>
+                <description>Optional data source for columns with Subheaders. Will be rendered using "Optional template: Subheader content per column".</description>
+            </property>
+            <property key="IN_HEADER_COL_ID" type="expression" dataSource="IN_HEADER_COLS_DS" required="false">
+                <caption>Subheader column key</caption>
+                <description>Column key expression per each column</description>
+                <returnType type="String" />
+            </property>
+            <property key="IN_HEADER_COL_WIDGET" type="widgets" dataSource="IN_HEADER_COLS_DS" required="false">
+                <caption>Optional template: Subheader content per column</caption>
+                <description/>
+            </property>
+        </propertyGroup>
+
+    </properties>
+</widget>
