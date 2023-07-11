@@ -1,24 +1,13 @@
-## DynamicGrid
-[Mendix wrapper for react-data-grid]
+# DynamicGrid
+Mendix wrapper for react-data-grid. The grid takes both the data and column metadata in JSON format as input, allowing user to dynamically build the grid definition. The data input as JSON can be useful when working with non-Mendix storage. The widget makes it easy to implement dynamic sorting and also allows for cell edition and row selection.
 
 ## Features
-[feature highlights]
+- dynamic column definition in JSON format
+- data provided in JSON format
+- cell editing
+- dynamic sorting
+- row selection
+- action column support
 
 ## Usage
 [step by step instructions]
-
-## Demo project
-[link to sandbox]
-
-## Issues, suggestions and feature requests
-[link to GitHub issues]
-
-## Development and contribution
-
-1. Install NPM package dependencies by using: `npm install`. If you use NPM v7.x.x, which can be checked by executing `npm -v`, execute: `npm install --legacy-peer-deps`.
-1. Run `npm start` to watch for code changes. On every change:
-    - the widget will be bundled;
-    - the bundle will be included in a `dist` folder in the root directory of the project;
-    - the bundle will be included in the `deployment` and `widgets` folder of the Mendix test project.
-
-[specify contribution]
